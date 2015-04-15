@@ -6,7 +6,7 @@
         <link href="assets/css/bootstrap.css" rel="stylesheet" />
     </head>
 
-    <body class="background">
+    <body class="background" style="overflow:hidden;">
         <!-- NAV BAR -->
         <nav role="navigation" class="navbar navbar-inverse">
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -73,15 +73,17 @@
         </div>
         <!-- END OF TABEL DAFTAR REGISTRASI -->
         
+        
         <!-- Popup Div Starts Here -->
-        <div id="popupForm" class="glass-background glass posisi-registrasi">
+        <div id="box-bg">
+        <div id="popupForm" class="glass">
             <!-- Contact Us Form -->
             <form action="#" id="form-registrasi" method="post" name="form">
                 <img id="close" src="assets/img/dark-button-normal.png" onclick ="div_hide()">
                 <h2>Tambah Registrasi</h2>
                 <hr>
                 <label for="inputPassword">Nama Pelanggan</label>
-                <input type="text" class="form-control transparent-input-field" /> <br>
+                <input type="text" class="form-control transparent-input-field" id="name"/> <br>
                 <label for="inputPassword">Jenis Layanan</label>
                 <div class="checkbox"><label><input type="checkbox">Cuci</label></div>
                 <div class="checkbox"><label><input type="checkbox">Creambath</label></div>
@@ -90,6 +92,7 @@
                 <div class="checkbox"><label><input type="checkbox">Lain-Lain</label></div>
                 <a href="javascript:%20check_empty()" id="submit"><div class="float-right dark-button"></div></a>
             </form>
+        </div>
         </div>
         <!-- Popup Div Ends Here -->
         
