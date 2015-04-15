@@ -1,0 +1,100 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>Registrasi</title>
+        <link href="assets/css/my-css.css" rel="stylesheet" />
+        <link href="assets/css/bootstrap.css" rel="stylesheet" />
+    </head>
+
+    <body class="background">
+        <!-- NAV BAR -->
+        <nav role="navigation" class="navbar navbar-inverse">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="#" class="navbar-brand">Memory Information System</a>
+            </div>
+            <!-- Collection of nav links, forms, and other content for toggling -->
+            <div id="navbarCollapse" class="collapse navbar-collapse">
+                <form role="search" class="navbar-form navbar-left">
+                    <span class="right-inner-addon">
+                        <i class="form-control-feedback glyphicon glyphicon-search"></i>
+                        <input type="text" placeholder="Search" class="form-control search-input">
+                    </span>
+                </form>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#" id="popup" onclick="div_show()"><span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;Tambah Registrasi</a></li>
+                </ul>
+            </div>
+        </nav>
+        <!-- END OF NAV BAR -->
+        
+        <!-- TABEL DAFTAR REGISTRASI -->
+        <div class="box-registrasi">
+            <table class="table tabel-registrasi">
+                <thead>
+                    <tr>
+                        <th>Tanggal</th>
+                        <th>Nama Pelanggan</th>
+                        <th>Jenis Layanan</th>
+                        <th>Harga</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>15-04-2015</td>
+                        <td>Gifari Kautsar</td>
+                        <td>Cepak, Blow</td>
+                        <td>50000</td>
+                        <td><span class="glyphicon glyphicon-ok status-pelayanan"></span></td>
+                    </tr>
+                    <tr>
+                        <td>15-04-2015</td>
+                        <td>Indam Muhammad</td>
+                        <td>Cuci Rambut</td>
+                        <td>30000</td>
+                        <td><span class="glyphicon glyphicon-ok status-pelayanan"></span></td>
+                    </tr>
+                    <tr>
+                        <td>15-04-2015</td>
+                        <td>Andarias Silvanus</td>
+                        <td>Keramas</td>
+                        <td>15000</td>
+                        <td><span class="glyphicon glyphicon-ok status-pelayanan"></span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <!-- END OF TABEL DAFTAR REGISTRASI -->
+        
+        <!-- Popup Div Starts Here -->
+        <div id="popupForm" class="glass-background glass posisi-registrasi">
+            <!-- Contact Us Form -->
+            <form action="#" id="form-registrasi" method="post" name="form">
+                <img id="close" src="assets/img/dark-button-normal.png" onclick ="div_hide()">
+                <h2>Tambah Registrasi</h2>
+                <hr>
+                <label for="inputPassword">Nama Pelanggan</label>
+                <input type="text" class="form-control transparent-input-field" /> <br>
+                <label for="inputPassword">Jenis Layanan</label>
+                <div class="checkbox"><label><input type="checkbox">Cuci</label></div>
+                <div class="checkbox"><label><input type="checkbox">Creambath</label></div>
+                <div class="checkbox"><label><input type="checkbox">Potong</label></div>
+                <div class="checkbox"><label><input type="checkbox">Blow</label></div>
+                <div class="checkbox"><label><input type="checkbox">Lain-Lain</label></div>
+                <a href="javascript:%20check_empty()" id="submit"><div class="float-right dark-button"></div></a>
+            </form>
+        </div>
+        <!-- Popup Div Ends Here -->
+        
+    </body>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/my-JS.js"></script>
+</html>

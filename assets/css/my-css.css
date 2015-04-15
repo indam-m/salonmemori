@@ -1,0 +1,127 @@
+@font-face {
+    font-family: "SourceSansPro";
+    src: url(../fonts/SourceSansPro-Regular.otf) format("truetype");
+}
+
+.glass-background {
+    background-color: rgba(15,34,34,0.55);
+    -webkit-filter: blur(-2px);
+}
+
+.glass {
+    display: block;
+    width: 30%;
+    height: 40%;
+    background-size: cover;
+    content: ' ';
+    margin-top: 11%;
+    margin-left: auto ;
+    margin-right: auto ;
+    padding: 4%;
+    padding-top: 2%;
+    padding-bottom: 8%;
+    border: 1px solid rgba(255,255,255,0.3);
+    color: #ffffff;
+}
+
+.background {
+    background-image:url(../img/background.jpg);
+    background-attachment:fixed;
+}
+
+.transparent-input-field{
+    background-color:rgba(0,0,0,0.3) !important;
+    border:none !important;
+    height: 40px !important;
+    color: #ffffff !important;
+}
+
+.left-inner-addon {
+    position: relative;
+}
+
+.left-inner-addon input {
+    padding-left: 33px;    
+}
+
+.left-inner-addon i {
+    position: absolute;
+    padding-left: 10px 12px;
+    pointer-events: none;
+    padding-top: 4%;
+    padding-left: 4%;
+    margin-left: 4%;
+}
+
+.right-inner-addon {
+    position: relative;
+}
+.right-inner-addon input {
+    padding-right: 30px;    
+}
+.right-inner-addon i {
+    position: absolute;
+    right: 0px;
+    padding: 10px 12px;
+    margin-top: -2% !important;
+    pointer-events: none;
+}
+
+.float-right {
+    float: right;
+}
+
+.dark-button {
+    background: url(../img/dark-button-normal.png);
+    width: 107px;
+    height: 40px;
+}
+
+.dark-button:hover {
+    background-image: url(../img/dark-button-hover.png);
+}
+
+.search-input {
+    width: 180% !important;
+}
+
+.status-pelayanan:hover {
+    cursor: pointer;
+    color: rgba(139, 234, 60, 1);
+}
+
+.box-registrasi {
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-top: 2%;
+}
+
+.tabel-registrasi {
+    background-color: rgba(15,34,34,0.55);
+    color: #ffffff;
+}
+
+.tabel-registrasi th, .tabel-registrasi td {
+    height: 50px;
+}
+
+.tabel-registrasi tr:hover {
+    background-color: rgba(0,0,0,0.55);
+}
+
+.posisi-registrasi {
+    position: fixed;
+    top: 0.2%;
+    left: 35%;
+}
+
+.saturate {-webkit-filter: saturate(3);}
+.grayscale {-webkit-filter: grayscale(100%);}
+.contrast {-webkit-filter: contrast(160%);}
+.brightness {-webkit-filter: brightness(1);} 
+.blur {-webkit-filter: blur(3px);}
+.invert {-webkit-filter: invert(100%);}
+.sepia {-webkit-filter: sepia(100%);}
+.huerotate {-webkit-filter: hue-rotate(180deg);}
+.rss.opacity {-webkit-filter: opacity(50%);}
+
