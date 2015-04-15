@@ -5,7 +5,7 @@ function check_empty() {
     } 
     else {
         document.getElementById('form-registrasi').submit();
-        alert("Data Berhasil Disimpan");
+        //alert("Data Berhasil Disimpan");
     }
 }
 //Function To Display Popup

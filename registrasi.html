@@ -4,6 +4,8 @@
         <title>Registrasi</title>
         <link href="assets/css/my-css.css" rel="stylesheet" />
         <link href="assets/css/bootstrap.css" rel="stylesheet" />
+        
+		<link rel="stylesheet" type="text/css" href="assets/css/component.css" />
     </head>
 
     <body class="background" style="overflow:hidden;">
@@ -28,7 +30,7 @@
                     </span>
                 </form>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#" id="popup" onclick="div_show()"><span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;Tambah Registrasi</a></li>
+                    <li><a href="#" class="md-trigger" data-modal="modal-3"><span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;Tambah Registrasi</a></li>
                 </ul>
             </div>
         </nav>
@@ -75,11 +77,11 @@
         
         
         <!-- Popup Div Starts Here -->
-        <div id="box-bg">
-        <div id="popupForm" class="glass">
+        <div class="md-modal md-effect-3" id="modal-3">
+        <div class="md-content">
             <!-- Contact Us Form -->
             <form action="#" id="form-registrasi" method="post" name="form">
-                <img id="close" src="assets/img/dark-button-normal.png" onclick ="div_hide()">
+                <img id="close" src="assets/img/close-icon.png" class="md-close float-right close-button">
                 <h2>Tambah Registrasi</h2>
                 <hr>
                 <label for="inputPassword">Nama Pelanggan</label>
@@ -90,14 +92,19 @@
                 <div class="checkbox"><label><input type="checkbox">Potong</label></div>
                 <div class="checkbox"><label><input type="checkbox">Blow</label></div>
                 <div class="checkbox"><label><input type="checkbox">Lain-Lain</label></div>
-                <a href="javascript:%20check_empty()" id="submit"><div class="float-right dark-button"></div></a>
+                <a href="javascript:%20check_empty()" id="submit"><div class="float-right dark-button md-close"></div></a>
             </form>
         </div>
         </div>
         <!-- Popup Div Ends Here -->
-        
+        <div class="md-overlay"></div>
     </body>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
     <script src="assets/js/my-JS.js"></script>
+    <script src="assets/js/modernizr.custom.js"></script>
+    <script src="assets/js/classie.js"></script>
+    <script src="assets/js/modalEffects.js"></script>
+    <script src="assets/js/cssParser.js"></script>
+    <script src="assets/js/css-filters-polyfill.js"></script>
 </html>

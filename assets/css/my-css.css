@@ -69,6 +69,13 @@
     float: right;
 }
 
+.close-button {
+    max-height: 40px;
+    max-width: 40px;
+    vertical-align: text-top;
+    cursor: pointer;
+}
+
 .dark-button {
     background: url(../img/dark-button-normal.png);
     width: 107px;
@@ -104,7 +111,7 @@
 }
 
 .tabel-registrasi th {
-    background-color: rgba(14,199,168,0.8);
+    background-color: rgba(14,199,168,0.8) !important;
 }
 
 .tabel-registrasi tr:hover {
