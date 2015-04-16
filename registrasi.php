@@ -43,7 +43,7 @@ else if($_COOKIE['role'] != 2)
                     </span>
                 </form>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#"><span class="glyphicon glyphicon-log-out"></span>&nbsp;&nbsp;Logout</a></li>
+                    <li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span>&nbsp;&nbsp;Logout</a></li>
                 </ul>
             </div>
         </nav>
