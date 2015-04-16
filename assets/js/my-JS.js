@@ -20,5 +20,5 @@ function div_hide(){
 }
 
 $(document).ready(function(){
-   div_hide(); 
+    div_hide(); 
 });
