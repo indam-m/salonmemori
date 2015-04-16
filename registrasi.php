@@ -23,6 +23,10 @@
             </div>
             <!-- Collection of nav links, forms, and other content for toggling -->
             <div id="navbarCollapse" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="#" class="md-trigger" data-modal="modal-10"><span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;Tambah Registrasi</a></li>
+                </ul>
+                
                 <form role="search" class="navbar-form navbar-left">
                     <span class="right-inner-addon">
                         <i class="form-control-feedback glyphicon glyphicon-search"></i>
@@ -30,13 +34,15 @@
                     </span>
                 </form>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#" class="md-trigger" data-modal="modal-10"><span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;Tambah Registrasi</a></li>
+                    <li><a href="#"><span class="glyphicon glyphicon-log-out"></span>&nbsp;&nbsp;Logout</a></li>
                 </ul>
             </div>
         </nav>
         <!-- END OF NAV BAR -->
         
-        <font color="white"><h1>&nbsp;&nbsp;REGISTRASI PELANGGAN</h1></font>
+        <div class="header">
+        <font color="white"><h1>REGISTRASI PELANGGAN</h1></font>
+        </div>
         
         <!-- TABEL DAFTAR REGISTRASI -->
         <div class="box-registrasi">
