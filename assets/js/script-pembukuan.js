@@ -4,9 +4,16 @@ $(document).ready(function(){
 	var $BTN = $('#export-btn');
 	var $EXPORT = $('#export');
 
-	$('.table-add').click(function () {
+	$('.table-add-pemasukan').click(function () {
 	  var $clone = $TABLE.find('tr.hide').clone(true).removeClass('hide table-line');
-	  $TABLE.find('table').append($clone);
+	  //$TABLE.find('table').append($clone);
+      $('#table-pemasukan').append($clone);
+	});
+    
+    $('.table-add-pengeluaran').click(function () {
+	  var $clone = $TABLE.find('tr.hide').clone(true).removeClass('hide table-line');
+	  //$TABLE.find('table').append($clone);
+      $('#table-pengeluaran').append($clone);
 	});
 
 	$('.table-remove').click(function () {

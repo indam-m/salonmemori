@@ -34,18 +34,29 @@
         </nav>
         <!-- END OF NAV BAR -->
         
+        <font color="white"><h1>&nbsp;&nbsp;PEMBUKUAN KEUANGAN</h1></font>
+        
         <div class="box-registrasi">
+            
+            
         <div class="row">
             <!-- TABEL PEMASUKAN -->
             <div class="col-md-6">
+                <table class="table tabel-registrasi">
+                    <thead>
+                        <th><h3>Total Pemasukan</h3></th>
+                        <th><h3>35000</h3></th>
+                    </thead>
+                </table>
+                
                 <div id="table" class="table-editable">
-                    <table class="table tabel-registrasi">
+                    <table class="table tabel-registrasi" id="table-pemasukan">
                         <tr>
                             <th>Tanggal</th>
                             <th>Keterangan</th>
                             <th>Pemasukan</th>
                             <th></th>
-                            <th><span class="table-add glyphicon glyphicon-plus"></span></th>
+                            <th><span class="table-add-pemasukan glyphicon glyphicon-plus"></span></th>
                         </tr>
                         <tr>
                             <td contenteditable="true">15-04-2015</td>
@@ -59,9 +70,9 @@
                         </tr>
                         <!-- This is our clonable table line -->
                         <tr class="hide">
-                            <td contenteditable="true"></td>
-                            <td contenteditable="true"></td>
-                            <td contenteditable="true"></td>
+                            <td contenteditable="true">Ketik di sini</td>
+                            <td contenteditable="true">Ketik di sini</td>
+                            <td contenteditable="true">Ketik di sini</td>
                             <td><span class="table-remove glyphicon glyphicon-remove"></span></td>
                             <td>
                                 <span class="table-up glyphicon glyphicon-arrow-up"></span>
@@ -78,14 +89,21 @@
 
             <!-- TABEL PENGELUARAN -->
             <div class="col-md-6">
+                <table class="table tabel-registrasi">
+                    <thead>
+                        <th><h3>Total Pengeluaran</h3></th>
+                        <th><h3>500000</h3></th>
+                    </thead>
+                </table>
+                
                 <div id="table" class="table-editable">
-                    <table class="table tabel-registrasi">
+                    <table class="table tabel-registrasi" id="table-pengeluaran">
                         <tr>
                             <th>Tanggal</th>
                             <th>Keterangan</th>
                             <th>Pengeluaran</th>
                             <th></th>
-                            <th><span class="table-add glyphicon glyphicon-plus"></span></th>
+                            <th><span class="table-add-pengeluaran glyphicon glyphicon-plus"></span></th>
                         </tr>
                         <tr>
                             <td contenteditable="true">15-04-2015</td>
@@ -101,9 +119,9 @@
                         </tr>
                         <!-- This is our clonable table line -->
                         <tr class="hide">
-                            <td contenteditable="true"></td>
-                            <td contenteditable="true"></td>
-                            <td contenteditable="true"></td>
+                            <td contenteditable="true">Ketik di sini</td>
+                            <td contenteditable="true">Ketik di sini</td>
+                            <td contenteditable="true">Ketik di sini</td>
                             <td>
                                 <span class="table-remove glyphicon glyphicon-remove"></span>
                             </td>

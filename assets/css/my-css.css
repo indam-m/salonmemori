@@ -173,7 +173,7 @@
 	color: #00f;
 }
 
-.table-add {
+.table-add-pemasukan, .table-add-pengeluaran {
   color: #070;
   cursor: pointer;
   position: absolute;
@@ -181,6 +181,10 @@
   right: 0;
 }
 
-.table-add:hover {
+.table-add-pemasukan:hover, .table-add-pengeluaran:hover {
 	color: #0b0;
+}
+
+.box-registrasi form row span {
+    max-width: 100px;
 }
