@@ -37,31 +37,39 @@
         <font color="white"><h1>&nbsp;&nbsp;PEMBUKUAN KEUANGAN</h1></font>
         
         <div class="box-registrasi">
+            <!-- RADIO BUTTON -->
             <form>
+            <div class="btn-group" data-toggle="buttons">
                 <div class="row">
-                  <span class="input-group float-right">
-                    <span class="input-group-addon">
-                      <input type="radio">
-                    </span>
-                  </span>
-                    
-                  <span class="input-group float-right">
-                    <span>
-                    <span class="input-group-addon">
-                      <input type="radio">
-                    </span>
-                    <input type="text" class="form-control">
-                    </span>
-                    &nbsp;Sampai&nbsp;
-                    <span>
-                    <span class="input-group-addon">
-                      <input type="radio">
-                    </span>
-                    <input type="text" class="form-control">
-                  </span>
-                  </span>
+                <div class="col-md-4"></div>
+                
+                <div class="col-md-1">
+                <label class="btn btn-success active">
+                    <input type="radio" name="options" id="option2" autocomplete="off" checked>
+                    <span class="glyphicon glyphicon-ok"></span>
+                </label>
                 </div>
-            </form>s
+                
+                <div class="col-md-1">
+                <label class="btn btn-info">
+                    <input type="radio" name="options" id="option2" autocomplete="off">
+                    <span class="glyphicon glyphicon-ok"></span>
+                </label>
+                </div>
+                <div class="col-md-2">
+                <input type="text" id="datepicker" class="form-control transparent-input-field" placeholder="Tanggal Awal">
+                </div>
+                <div class="col-md-2">
+                <font color="white">&nbsp;Sampai dengan&nbsp;</font>
+                </div>
+                <div class="col-md-2">
+                <input type="text" id="datepicker2" class="form-control transparent-input-field" placeholder="Tanggal Akhir">
+                </div>
+                
+                </div>
+            </div>
+            </form>
+            <!-- END OF RADIO BUTTON -->
 
         <div class="row">
             <!-- TABEL PEMASUKAN -->
@@ -197,4 +205,6 @@
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
     <script src="assets/js/script-pembukuan.js"></script>
+    <script src="assets/js/datepicker.js"></script>  
+    <link rel="stylesheet" href="assets/css/datepicker.css">
 </html>
