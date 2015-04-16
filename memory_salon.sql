@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 15, 2015 at 11:38 AM
+-- Generation Time: Apr 16, 2015 at 08:30 AM
 -- Server version: 5.6.16
 -- PHP Version: 5.5.9
 
@@ -34,6 +34,15 @@ CREATE TABLE IF NOT EXISTS `karyawan` (
   PRIMARY KEY (`username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `karyawan`
+--
+
+INSERT INTO `karyawan` (`username`, `password`, `nama`, `gaji`) VALUES
+('andarias', 'anda', 'Andarias Silvanus', 3000000),
+('gifarikautsar', 'agi', 'Gifari Kautsar', 2000000),
+('indammuhammad', 'indam', 'Indam Muhammad', 2000000);
+
 -- --------------------------------------------------------
 
 --
@@ -46,6 +55,14 @@ CREATE TABLE IF NOT EXISTS `kasir` (
   KEY `un_kasir` (`username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `kasir`
+--
+
+INSERT INTO `kasir` (`username`) VALUES
+('gifarikautsar'),
+('indammuhammad');
+
 -- --------------------------------------------------------
 
 --
@@ -57,7 +74,18 @@ CREATE TABLE IF NOT EXISTS `layanan` (
   `nama` varchar(30) NOT NULL,
   `biaya` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
+
+--
+-- Dumping data for table `layanan`
+--
+
+INSERT INTO `layanan` (`id`, `nama`, `biaya`) VALUES
+(1, 'Cuci', 20000),
+(2, 'Creambath', 50000),
+(3, 'Potong', 25000),
+(4, 'Blow', 20000),
+(5, 'Lain-lain', 0);
 
 -- --------------------------------------------------------
 
@@ -69,6 +97,13 @@ CREATE TABLE IF NOT EXISTS `manager` (
   `username` varchar(30) NOT NULL,
   PRIMARY KEY (`username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `manager`
+--
+
+INSERT INTO `manager` (`username`) VALUES
+('andarias');
 
 -- --------------------------------------------------------
 
@@ -86,7 +121,15 @@ CREATE TABLE IF NOT EXISTS `pemasukan` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `pemasukan_pelanggan` (`nama_pelanggan`),
   KEY `pemasukan_kasir` (`username_kasir`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+--
+-- Dumping data for table `pemasukan`
+--
+
+INSERT INTO `pemasukan` (`id`, `keterangan`, `nominal`, `tanggal`, `username_kasir`, `nama_pelanggan`) VALUES
+(1, 'Pembayaran Layanan', 40000, '2015-04-04', 'indammuhammad', 'hayyu'),
+(2, 'Pembayaran Layanan', 20000, '2015-04-05', 'gifarikautsar', 'atia');
 
 -- --------------------------------------------------------
 
@@ -102,7 +145,17 @@ CREATE TABLE IF NOT EXISTS `pengeluaran` (
   `username_manager` varchar(30) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `pengeluaran_manager` (`username_manager`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+
+--
+-- Dumping data for table `pengeluaran`
+--
+
+INSERT INTO `pengeluaran` (`id`, `keterangan`, `nominal`, `tanggal`, `username_manager`) VALUES
+(1, 'Pembelian Shampoo', 500000, '2015-04-01', 'andarias'),
+(2, 'Gaji Indam Muhammad', 2000000, '2015-04-02', 'andarias'),
+(3, 'Pembayaran Listrik', 250000, '2015-04-07', 'andarias'),
+(4, 'Pembayaran Air', 250000, '2015-04-11', 'andarias');
 
 -- --------------------------------------------------------
 
@@ -116,6 +169,17 @@ CREATE TABLE IF NOT EXISTS `pesanan` (
   PRIMARY KEY (`nama_pelanggan`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `pesanan`
+--
+
+INSERT INTO `pesanan` (`nama_pelanggan`, `status`) VALUES
+('Arina', 0),
+('Atia', 1),
+('Hayyu', 1),
+('Riska', 0),
+('Stanley', 0);
+
 -- --------------------------------------------------------
 
 --
@@ -128,6 +192,24 @@ CREATE TABLE IF NOT EXISTS `pesanan_layanan` (
   PRIMARY KEY (`id_layanan`,`nama_pelanggan`),
   KEY `nama_pelanggan` (`nama_pelanggan`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `pesanan_layanan`
+--
+
+INSERT INTO `pesanan_layanan` (`id_layanan`, `nama_pelanggan`) VALUES
+(1, 'Arina'),
+(2, 'Arina'),
+(3, 'Arina'),
+(4, 'Arina'),
+(1, 'Atia'),
+(1, 'Hayyu'),
+(4, 'Hayyu'),
+(1, 'Riska'),
+(2, 'Riska'),
+(4, 'Riska'),
+(1, 'Stanley'),
+(3, 'Stanley');
 
 --
 -- Constraints for dumped tables

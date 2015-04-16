@@ -61,15 +61,23 @@
                   </span>
                   </span>
                 </div>
-            </form>
-            
+            </form>s
+
         <div class="row">
             <!-- TABEL PEMASUKAN -->
             <div class="col-md-6">
                 <table class="table tabel-registrasi">
                     <thead>
                         <th><h3>Total Pemasukan</h3></th>
-                        <th><h3>35000</h3></th>
+                        <?php
+                            include('connectdb.php');
+                            $pemasukan= mysql_query("SELECT SUM(nominal) as total FROM pemasukan") or die(mysql_error());
+                            while($row = mysql_fetch_assoc($pemasukan)){
+                                $total = $row['total'];
+                            }
+                            mysql_close();
+                            echo "<th><h3>" .$total. "</h3></th>"
+                        ?>
                     </thead>
                 </table>
                 
@@ -79,29 +87,37 @@
                             <th>Tanggal</th>
                             <th>Keterangan</th>
                             <th>Pemasukan</th>
-                            <th></th>
                             <th><span class="table-add-pemasukan glyphicon glyphicon-plus"></span></th>
                         </tr>
-                        <tr>
-                            <td contenteditable="true">15-04-2015</td>
-                            <td contenteditable="true">Blow, Potong Rambut</td>
-                            <td contenteditable="true">35000</td>
-                            <td><span class="table-remove glyphicon glyphicon-remove"></span></td>
-                            <td>
-                                <span class="table-up glyphicon glyphicon-arrow-up"></span>
-                                <span class="table-down glyphicon glyphicon-arrow-down"></span>
-                            </td>
-                        </tr>
                         <!-- This is our clonable table line -->
+                        <?php
+                            include('connectdb.php');
+                            $pemasukan= mysql_query("SELECT *, DATE_FORMAT(tanggal, '%d-%m-%Y') as _tanggal FROM pemasukan ORDER BY tanggal DESC") or die(mysql_error());
+                            while($row = mysql_fetch_assoc($pemasukan)){
+                                $keterangan = $row['keterangan'];
+                                $nominal = $row['nominal'];
+                                $tanggal = $row['_tanggal'];
+                                echo "<tr>";
+                                echo "<td contenteditable=\"true\">" .$tanggal. "</td>";
+                                echo "<td contenteditable=\"true\">" .$keterangan. "</td>";
+                                echo "<td contenteditable=\"true\">" .$nominal. "</td>";
+                                echo "<td>";
+                                echo "<span class=\"table-remove glyphicon glyphicon-remove\"></span>";
+                                echo "</td>";
+                                echo "</tr>";
+                            }
+                            mysql_close();
+                        ?>
                         <tr class="hide">
-                            <td contenteditable="true">Ketik di sini</td>
+                            <td contenteditable="true">
+                                    <?php
+                                        date_default_timezone_set('UTC');
+                                        echo date('d-m-Y');
+                                    ?>
+                            </td>
                             <td contenteditable="true">Ketik di sini</td>
                             <td contenteditable="true">Ketik di sini</td>
                             <td><span class="table-remove glyphicon glyphicon-remove"></span></td>
-                            <td>
-                                <span class="table-up glyphicon glyphicon-arrow-up"></span>
-                                <span class="table-down glyphicon glyphicon-arrow-down"></span>
-                            </td>
                         </tr>
                     </table>
                 </div>
@@ -116,7 +132,15 @@
                 <table class="table tabel-registrasi">
                     <thead>
                         <th><h3>Total Pengeluaran</h3></th>
-                        <th><h3>500000</h3></th>
+                        <?php
+                            include('connectdb.php');
+                            $pengeluaran= mysql_query("SELECT SUM(nominal) as total FROM pengeluaran") or die(mysql_error());
+                            while($row = mysql_fetch_assoc($pengeluaran)){
+                                $total = $row['total'];
+                            }
+                            mysql_close();
+                            echo "<th><h3>" .$total. "</h3></th>"
+                        ?>
                     </thead>
                 </table>
                 
@@ -126,32 +150,38 @@
                             <th>Tanggal</th>
                             <th>Keterangan</th>
                             <th>Pengeluaran</th>
-                            <th></th>
                             <th><span class="table-add-pengeluaran glyphicon glyphicon-plus"></span></th>
                         </tr>
-                        <tr>
-                            <td contenteditable="true">15-04-2015</td>
-                            <td contenteditable="true">20 Botol Shampoo</td>
-                            <td contenteditable="true">500000</td>
-                            <td>
-                                <span class="table-remove glyphicon glyphicon-remove"></span>
-                            </td>
-                            <td>
-                                <span class="table-up glyphicon glyphicon-arrow-up"></span>
-                                <span class="table-down glyphicon glyphicon-arrow-down"></span>
-                            </td>
-                        </tr>
                         <!-- This is our clonable table line -->
+                        <?php
+                            include('connectdb.php');
+                            $pengeluaran= mysql_query("SELECT *, DATE_FORMAT(tanggal, '%d-%m-%Y') as _tanggal FROM pengeluaran ORDER BY tanggal DESC") or die(mysql_error());
+                            while($row = mysql_fetch_assoc($pengeluaran)){
+                                $keterangan = $row['keterangan'];
+                                $nominal = $row['nominal'];
+                                $tanggal = $row['_tanggal'];
+                                echo "<tr>";
+                                echo "<td contenteditable=\"true\">" .$tanggal. "</td>";
+                                echo "<td contenteditable=\"true\">" .$keterangan. "</td>";
+                                echo "<td contenteditable=\"true\">" .$nominal. "</td>";
+                                echo "<td>";
+                                echo "<span class=\"table-remove glyphicon glyphicon-remove\"></span>";
+                                echo "</td>";
+                                echo "</tr>";
+                            }
+                            mysql_close();
+                        ?>
                         <tr class="hide">
-                            <td contenteditable="true">Ketik di sini</td>
+                            <td contenteditable="true">
+                                <?php
+                                    date_default_timezone_set('UTC');
+                                    echo date('d-m-Y');
+                                ?>
+                            </td>
                             <td contenteditable="true">Ketik di sini</td>
                             <td contenteditable="true">Ketik di sini</td>
                             <td>
                                 <span class="table-remove glyphicon glyphicon-remove"></span>
-                            </td>
-                            <td>
-                                <span class="table-up glyphicon glyphicon-arrow-up"></span>
-                                <span class="table-down glyphicon glyphicon-arrow-down"></span>
                             </td>
                         </tr>
                     </table>
