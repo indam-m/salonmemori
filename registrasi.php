@@ -68,11 +68,11 @@ else if($_COOKIE['role'] != 2)
                 <tbody>
                 <?php
                     include('connectdb.php');
-                    $pesanan= mysql_query("SELECT *, SUM(biaya) as jumlah FROM pesanan NATURAL JOIN pesanan_layanan NATURAL JOIN layanan GROUP BY nama_pelanggan ORDER BY id_layanan DESC") or die(mysql_error());
+                    $pesanan= mysql_query("SELECT *, SUM(biaya) as jumlah FROM pesanan NATURAL JOIN pesanan_layanan NATURAL JOIN layanan WHERE id = id_layanan AND status = FALSE GROUP BY nama_pelanggan ORDER BY id_layanan DESC") or die(mysql_error());
                     while($row = mysql_fetch_assoc($pesanan)){
                         $nama = $row['nama_pelanggan'];
                         $biaya = $row['jumlah'];
-                        $pelayanan = mysql_query("SELECT nama FROM pesanan_layanan NATURAL JOIN layanan WHERE nama_pelanggan='$nama'") or die(mysql_error());
+                        $pelayanan = mysql_query("SELECT nama FROM pesanan_layanan NATURAL JOIN layanan WHERE nama_pelanggan='$nama' AND id = id_layanan") or die(mysql_error());
 
                         echo '
                         <tr>
