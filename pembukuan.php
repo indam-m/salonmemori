@@ -133,9 +133,6 @@
                         </tr>
                     </table>
                 </div>
-
-                <button id="export-btn" class="btn btn-primary">Export Data</button>
-                <p id="export"></p>
             </div>
             <!-- END OF  TABEL PEMASUKAN -->
 
@@ -201,9 +198,6 @@
                         </tr>
                     </table>
                 </div>
-
-                <button id="export-btn" class="btn btn-primary">Export Data</button>
-                <p id="export"></p>
             </div>
             <!-- END OF TABEL PENGELUARAN -->
         </div>

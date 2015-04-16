@@ -173,7 +173,7 @@
 	color: #00f;
 }
 
-.table-add-pemasukan, .table-add-pengeluaran, .table-ok {
+.table-add-pemasukan, .table-add-pengeluaran, .table-ok, .table-add {
   color: #070;
   cursor: pointer;
   position: absolute;
@@ -181,7 +181,7 @@
   right: 0;
 }
 
-.table-add-pemasukan:hover, .table-add-pengeluaran:hover, .table-ok:hover {
+.table-add-pemasukan:hover, .table-add-pengeluaran:hover, .table-ok:hover, .table-add:hover {
 	color: #0b0;
 }
 
