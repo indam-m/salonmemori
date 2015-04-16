@@ -51,27 +51,30 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>15-04-2015</td>
-                        <td>Gifari Kautsar</td>
-                        <td>Cepak, Blow</td>
-                        <td>50000</td>
-                        <td><span class="glyphicon glyphicon-ok status-pelayanan"></span></td>
-                    </tr>
-                    <tr>
-                        <td>15-04-2015</td>
-                        <td>Indam Muhammad</td>
-                        <td>Cuci Rambut</td>
-                        <td>30000</td>
-                        <td><span class="glyphicon glyphicon-ok status-pelayanan"></span></td>
-                    </tr>
-                    <tr>
-                        <td>15-04-2015</td>
-                        <td>Andarias Silvanus</td>
-                        <td>Keramas</td>
-                        <td>15000</td>
-                        <td><span class="glyphicon glyphicon-ok status-pelayanan"></span></td>
-                    </tr>
+                <?php
+                    include('connectdb.php');
+                    $pesanan= mysql_query("SELECT *, SUM(biaya) as jumlah FROM pesanan NATURAL JOIN pesanan_layanan NATURAL JOIN layanan GROUP BY nama_pelanggan ORDER BY id_layanan DESC") or die(mysql_error());
+                    while($row = mysql_fetch_assoc($pesanan)){
+                        $nama = $row['nama_pelanggan'];
+                        $biaya = $row['jumlah'];
+                        $pelayanan = mysql_query("SELECT nama FROM pesanan_layanan NATURAL JOIN layanan WHERE nama_pelanggan='$nama'") or die(mysql_error());
+
+                        echo '
+                        <tr>
+                            <td>'.date('d-m-Y').'</td>
+                            <td>'.$nama.'</td>
+                            <td>';
+                        while($rowpelayanan = mysql_fetch_assoc($pelayanan)){
+                            echo $rowpelayanan['nama'].'<br>';
+                        }
+                        echo '
+                            </td>
+                            <td>'.$biaya.'</td>
+                            <td><span class="glyphicon glyphicon-ok status-pelayanan"></span></td>
+                        </tr>';
+                    }
+                    mysql_close();
+                ?>
                 </tbody>
             </table>
         </div>
