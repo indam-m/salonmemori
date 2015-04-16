@@ -3,11 +3,6 @@
     src: url(../fonts/SourceSansPro-Regular.otf) format("truetype");
 }
 
-.glass-background {
-    background-color: rgba(15,34,34,0.55);
-    -webkit-filter: blur(-2px);
-}
-
 .glass {
     display: block;
     width: 30%;
@@ -22,11 +17,14 @@
     padding-bottom: 8%;
     border: 1px solid rgba(255,255,255,0.3);
     color: #ffffff;
+    background-color: rgba(15,34,34,0.55);
+    -webkit-filter: blur(-2px);
 }
 
 .background {
     background-image:url(../img/background.jpg);
     background-attachment:fixed;
+    background-size: cover;
 }
 
 .transparent-input-field{
@@ -71,13 +69,20 @@
     float: right;
 }
 
+.close-button {
+    max-height: 40px;
+    max-width: 40px;
+    vertical-align: text-top;
+    cursor: pointer;
+}
+
 .dark-button {
     background: url(../img/dark-button-normal.png);
     width: 107px;
     height: 40px;
 }
 
-.dark-button:hover {
+.dark-button:active {
     background-image: url(../img/dark-button-hover.png);
 }
 
@@ -97,7 +102,7 @@
 }
 
 .tabel-registrasi {
-    background-color: rgba(15,34,34,0.55);
+    background-color: rgba(0,0,0,0.55);
     color: #ffffff;
 }
 
@@ -105,14 +110,31 @@
     height: 50px;
 }
 
-.tabel-registrasi tr:hover {
-    background-color: rgba(0,0,0,0.55);
+.tabel-registrasi th {
+    background-color: rgba(14,199,168,0.8) !important;
 }
 
-.posisi-registrasi {
+.tabel-registrasi tr:hover {
+    background-color: rgba(14,199,168,0.4);
+}
+
+#popupForm {
     position: fixed;
-    top: 0.2%;
+    top: -10% !important;
     left: 35%;
+    height: 70% !important;
+}
+
+.box-bg {
+    width:100%;
+    height:100%;
+    opacity:0.95;
+    top:0;
+    left:0;
+    display:none;
+    position:fixed;
+    background-color:#313131;
+    overflow:auto;
 }
 
 .saturate {-webkit-filter: saturate(3);}
@@ -125,3 +147,44 @@
 .huerotate {-webkit-filter: hue-rotate(180deg);}
 .rss.opacity {-webkit-filter: opacity(50%);}
 
+.table-editable {
+  position: relative;
+  
+.glyphicon {
+    font-size: 20px;
+  }
+}
+
+.table-remove {
+  color: #700;
+  cursor: pointer;
+}
+
+.table-remove:hover {
+	color: #f00;
+}
+
+.table-up, .table-down {
+  color: #007;
+  cursor: pointer;
+}
+
+.table-up:hover, .table-down:hover {
+	color: #00f;
+}
+
+.table-add-pemasukan, .table-add-pengeluaran {
+  color: #070;
+  cursor: pointer;
+  position: absolute;
+  top: 8px;
+  right: 0;
+}
+
+.table-add-pemasukan:hover, .table-add-pengeluaran:hover {
+	color: #0b0;
+}
+
+.box-registrasi form row span {
+    max-width: 100px;
+}
