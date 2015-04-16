@@ -1,3 +1,12 @@
+<?php
+
+if(!isset($_COOKIE['user']))
+    header("Location:login.php");
+else if($_COOKIE['role'] != 1)
+    header("Location:login.php");
+
+?>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
@@ -21,54 +30,53 @@
             </div>
             <!-- Collection of nav links, forms, and other content for toggling -->
             <div id="navbarCollapse" class="collapse navbar-collapse">
-                <form role="search" class="navbar-form navbar-left">
-                    <span class="right-inner-addon">
-                        <i class="form-control-feedback glyphicon glyphicon-search"></i>
-                        <input type="text" placeholder="Search" class="form-control search-input">
-                    </span>
-                </form>
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#"><span class="glyphicon glyphicon-list-alt"></span>&nbsp;&nbsp;Pembukuan</a></li>
+                    <li><a href="manage_akun.php"><span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;Manajemen Akun</a></li>
+                </ul>
+                
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#" id="popup" onclick="div_show()"><span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;Tambah Registrasi</a></li>
+                    <li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span>&nbsp;&nbsp;Logout</a></li>
                 </ul>
             </div>
         </nav>
         <!-- END OF NAV BAR -->
-        
-        <font color="white"><h1>&nbsp;&nbsp;PEMBUKUAN KEUANGAN</h1></font>
+        <div class="header">
+        <font color="white"><h1>PEMBUKUAN KEUANGAN</h1></font>
+        </div>
         
         <div class="box-registrasi">
+            
+            <div class="radio-wrapper">
             <!-- RADIO BUTTON -->
             <form>
             <div class="btn-group" data-toggle="buttons">
                 <div class="row">
-                <div class="col-md-4"></div>
-                
-                <div class="col-md-1">
+                <table class="tabel-radio">
+                <th>
                 <label class="btn btn-success active">
                     <input type="radio" name="options" id="option2" autocomplete="off" checked>
-                    <span class="glyphicon glyphicon-ok"></span>
+                    &nbsp;Tampilkan Semua Tanggal
+                    <!-- <span class="glyphicon glyphicon-ok"></span> -->
                 </label>
-                </div>
-                
-                <div class="col-md-1">
+                </th>
+                <th class="narrow-width">&nbsp;</th>
+                <th>
                 <label class="btn btn-info">
                     <input type="radio" name="options" id="option2" autocomplete="off">
-                    <span class="glyphicon glyphicon-ok"></span>
+                    <!-- <span class="glyphicon glyphicon-ok"></span> -->
+                    &nbsp;Ambil Tanggal Tertentu
                 </label>
-                </div>
-                <div class="col-md-2">
-                <input type="text" id="datepicker" class="form-control transparent-input-field" placeholder="Tanggal Awal">
-                </div>
-                <div class="col-md-2">
-                <font color="white">&nbsp;Sampai dengan&nbsp;</font>
-                </div>
-                <div class="col-md-2">
-                <input type="text" id="datepicker2" class="form-control transparent-input-field" placeholder="Tanggal Akhir">
-                </div>
+                </th>
                 
+                <th><input type="text" id="datepicker" class="form-control transparent-input-field" placeholder="Tanggal Awal"></th>
+                <th class="narrow-width"><center><font color="white">s.d.</font></center></th>
+                <th><input type="text" id="datepicker2" class="form-control transparent-input-field" placeholder="Tanggal Akhir"></th>
+                </table>
                 </div>
             </div>
             </form>
+            </div>
             <!-- END OF RADIO BUTTON -->
 
         <div class="row">
@@ -95,6 +103,7 @@
                             <th>Tanggal</th>
                             <th>Keterangan</th>
                             <th>Pemasukan</th>
+                            <th></th>
                             <th><span class="table-add-pemasukan glyphicon glyphicon-plus"></span></th>
                         </tr>
                         <!-- This is our clonable table line -->
@@ -112,6 +121,9 @@
                                 echo "<td>";
                                 echo "<span class=\"table-remove glyphicon glyphicon-remove\"></span>";
                                 echo "</td>";
+                                echo "<td>";
+                                echo "<span class=\"table-ok glyphicon glyphicon-ok\"></span>";
+                                echo "</td>";
                                 echo "</tr>";
                             }
                             mysql_close();
@@ -126,12 +138,10 @@
                             <td contenteditable="true">Ketik di sini</td>
                             <td contenteditable="true">Ketik di sini</td>
                             <td><span class="table-remove glyphicon glyphicon-remove"></span></td>
+                            <td><span class="table-ok glyphicon glyphicon-ok"></span></td>
                         </tr>
                     </table>
                 </div>
-
-                <button id="export-btn" class="btn btn-primary">Export Data</button>
-                <p id="export"></p>
             </div>
             <!-- END OF  TABEL PEMASUKAN -->
 
@@ -158,6 +168,7 @@
                             <th>Tanggal</th>
                             <th>Keterangan</th>
                             <th>Pengeluaran</th>
+                            <th></th>
                             <th><span class="table-add-pengeluaran glyphicon glyphicon-plus"></span></th>
                         </tr>
                         <!-- This is our clonable table line -->
@@ -175,6 +186,9 @@
                                 echo "<td>";
                                 echo "<span class=\"table-remove glyphicon glyphicon-remove\"></span>";
                                 echo "</td>";
+                                echo "<td>";
+                                echo "<span class=\"table-ok glyphicon glyphicon-ok\"></span>";
+                                echo "</td>";
                                 echo "</tr>";
                             }
                             mysql_close();
@@ -188,15 +202,11 @@
                             </td>
                             <td contenteditable="true">Ketik di sini</td>
                             <td contenteditable="true">Ketik di sini</td>
-                            <td>
-                                <span class="table-remove glyphicon glyphicon-remove"></span>
-                            </td>
+                            <td><span class="table-remove glyphicon glyphicon-remove"></span></td>
+                            <td><span class="table-ok glyphicon glyphicon-ok"></span></td>
                         </tr>
                     </table>
                 </div>
-
-                <button id="export-btn" class="btn btn-primary">Export Data</button>
-                <p id="export"></p>
             </div>
             <!-- END OF TABEL PENGELUARAN -->
         </div>

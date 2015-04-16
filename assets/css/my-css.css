@@ -173,7 +173,7 @@
 	color: #00f;
 }
 
-.table-add-pemasukan, .table-add-pengeluaran {
+.table-add-pemasukan, .table-add-pengeluaran, .table-ok, .table-add {
   color: #070;
   cursor: pointer;
   position: absolute;
@@ -181,7 +181,7 @@
   right: 0;
 }
 
-.table-add-pemasukan:hover, .table-add-pengeluaran:hover {
+.table-add-pemasukan:hover, .table-add-pengeluaran:hover, .table-ok:hover, .table-add:hover {
 	color: #0b0;
 }
 
@@ -274,6 +274,22 @@
 	opacity: 1;				
 }
 
-.radio-field {
-    display: inline !important;
+.tabel-radio {
+    margin-bottom: 3%;
+}
+
+.tabel-radio th{
+    min-width: 200px;
+}
+
+.narrow-width {
+    max-width: 60px !important;
+}
+
+.radio-wrapper {
+    padding-left: 1.2%;
+}
+
+.header {
+    padding-left: 5%;
 }
