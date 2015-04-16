@@ -49,34 +49,26 @@ else if($_COOKIE['role'] != 1)
             <div id="table" class="table-editable">
                 <table class="table tabel-registrasi" >
                     <tr>
+                        <th>Nama</th>
                         <th>Username</th>
                         <th>Password</th>
                         <th>Role</th>
                         <th></th>
                         <th><span class="table-add glyphicon glyphicon-plus"></span></th>
                     </tr>
-                    <tr>
-                        <td contenteditable="true">Indam_Muhammad</td>
-                        <td contenteditable="true">indamut</td>
-                        <td contenteditable="true">Kasir</td>
-                        <td><span class="table-remove glyphicon glyphicon-remove"></span></td>
-                        <td><span class="table-ok glyphicon glyphicon-ok"></span></td>
-                    </tr>
-                    <tr>
-                        <td contenteditable="true">Gifari_Kautsar</td>
-                        <td contenteditable="true">agiagiagi</td>
-                        <td contenteditable="true">Manajer</td>
-                        <td><span class="table-remove glyphicon glyphicon-remove"></span></td>
-                        <td><span class="table-ok glyphicon glyphicon-ok"></span></td>
-                    </tr>
+
+                    <?php include 'load_akun.php'; ?>
+
                     <!-- This is our clonable table line -->
                     <tr class="hide">
                         <td contenteditable="true">Ketik di sini</td>
                         <td contenteditable="true">Ketik di sini</td>
                         <td contenteditable="true">Ketik di sini</td>
+                        <td contenteditable="true">Ketik di sini</td>
                         <td><span class="table-remove glyphicon glyphicon-remove"></span></td>
                         <td><span class="table-ok glyphicon glyphicon-ok"></span></td>
                     </tr>
+                    
                 </table>
             </div>
         </div>
