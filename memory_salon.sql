@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 16, 2015 at 08:30 AM
+-- Generation Time: Apr 17, 2015 at 05:35 AM
 -- Server version: 5.6.16
 -- PHP Version: 5.5.9
 
@@ -31,6 +31,7 @@ CREATE TABLE IF NOT EXISTS `karyawan` (
   `password` varchar(30) NOT NULL,
   `nama` varchar(100) NOT NULL,
   `gaji` int(11) NOT NULL,
+  `status` tinyint(1) NOT NULL DEFAULT '1',
   PRIMARY KEY (`username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -38,10 +39,10 @@ CREATE TABLE IF NOT EXISTS `karyawan` (
 -- Dumping data for table `karyawan`
 --
 
-INSERT INTO `karyawan` (`username`, `password`, `nama`, `gaji`) VALUES
-('andarias', 'anda', 'Andarias Silvanus', 3000000),
-('gifarikautsar', 'agi', 'Gifari Kautsar', 2000000),
-('indammuhammad', 'indam', 'Indam Muhammad', 2000000);
+INSERT INTO `karyawan` (`username`, `password`, `nama`, `gaji`, `status`) VALUES
+('andarias', 'anda', 'Andarias Silvanus', 3000000, 1),
+('gifarikautsar', 'agi', 'Gifari Kautsar', 2000000, 1),
+('indammuhammad', 'indam', 'Indam Muhammad', 2000000, 1);
 
 -- --------------------------------------------------------
 

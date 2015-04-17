@@ -85,7 +85,7 @@ else if($_COOKIE['role'] != 2)
                         echo '
                             </td>
                             <td>'.$biaya.'</td>
-                            <td><span class="glyphicon glyphicon-ok status-pelayanan"></span></td>
+                            <td><span class="glyphicon glyphicon-ok status-pelayanan" onclick = layanan_selesai.php></span></td>
                         </tr>';
                     }
                     mysql_close();
@@ -128,3 +128,34 @@ else if($_COOKIE['role'] != 2)
     <script src="assets/js/cssParser.js"></script>
     <script src="assets/js/css-filters-polyfill.js"></script>
 </html>
+
+<script>
+function done(nama, biaya, kasir) {
+    alert("Username atau password salah");
+    var xmlHttpObj;
+    if (window.XMLHttpRequest) {
+        xmlHttpObj = new XMLHttpRequest( );
+    } 
+    else {
+        try {
+            xmlHttpObj = new ActiveXObject("Msxml2.XMLHTTP");
+        } 
+        catch (e) {
+            try {
+                xmlHttpObj = new ActiveXObject("Microsoft.XMLHTTP");
+            } 
+            catch (e) {
+                xmlHttpObj = false;
+            }
+        }
+    }
+    xmlHttpObj.open("GET","layanan_selesai.php?nama="+nama+"&biaya="+biaya+"&kasir="+kasir,true);
+    //LoadCommentAjax(id_post);
+    xmlHttpObj.send();
+    
+    xmlHttpObj.onreadystatechange= function(){
+        if(xmlHttpObj.readyState==4 && xmlHttpObj.status==200){
+        }
+    }
+}
+</script>
