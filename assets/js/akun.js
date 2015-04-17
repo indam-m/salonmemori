@@ -10,7 +10,16 @@ $(document).ready(function(){
 	});
 
 	$('.table-remove').click(function () {
-	  $(this).parents('tr').detach();
+		if(confirm("Anda yakin ingin menghapus akun ini?")){
+			var user = $(this).parents('tr').find(".username").text();
+			var role = $(this).attr('role');
+			$.ajax({
+				type: 'POST',
+				url: 'delete_akun.php',
+				data: 'username=' + user + '&role=' + role
+			})
+			$(this).parents('tr').detach();
+		}
 	});
 
 	$('.table-up').click(function () {
@@ -50,6 +59,8 @@ $(document).ready(function(){
 		
 		data.push(h);
 	  });
+
+	  
 	  
 	  // Output the result
 	  $EXPORT.text(JSON.stringify(data));

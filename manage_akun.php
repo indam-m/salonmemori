@@ -61,10 +61,10 @@ else if($_COOKIE['role'] != 1)
 
                     <!-- This is our clonable table line -->
                     <tr class="hide">
-                        <td contenteditable="true">Ketik di sini</td>
-                        <td contenteditable="true">Ketik di sini</td>
-                        <td contenteditable="true">Ketik di sini</td>
-                        <td contenteditable="true">Ketik di sini</td>
+                        <td contenteditable="true" class="nama">Ketik di sini</td>
+                        <td contenteditable="true" class="username">Ketik di sini</td>
+                        <td contenteditable="true" class="password">Ketik di sini</td>
+                        <td contenteditable="true" class="role">Ketik di sini</td>
                         <td><span class="table-remove glyphicon glyphicon-remove"></span></td>
                         <td><span class="table-ok glyphicon glyphicon-ok"></span></td>
                     </tr>

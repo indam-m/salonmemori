@@ -10,7 +10,7 @@ $password = stripslashes($password);
 $username = mysql_real_escape_string($username);
 $password = mysql_real_escape_string($password);
 
-$result = mysql_query("SELECT * FROM karyawan WHERE username='$username' AND password='$password'");
+$result = mysql_query("SELECT * FROM karyawan WHERE username='$username' AND password='$password' AND status=1");
 
 $count = mysql_num_rows($result);
 
