@@ -72,6 +72,7 @@ else if($_COOKIE['role'] != 1)
                 <th><input type="text" id="datepicker" class="form-control transparent-input-field" placeholder="Tanggal Awal"></th>
                 <th class="narrow-width"><center><font color="white">s.d.</font></center></th>
                 <th><input type="text" id="datepicker2" class="form-control transparent-input-field" placeholder="Tanggal Akhir"></th>
+                <th>&nbsp;&nbsp;&nbsp;&nbsp;<label class="btn btn-warning float-right">Buat Laporan Pembukuan</th>
                 </table>
                 </div>
             </div>

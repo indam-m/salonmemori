@@ -3,13 +3,28 @@
     src: url(../fonts/SourceSansPro-Regular.otf) format("truetype");
 }
 
+@font-face {
+    font-family: "GeosansLight";
+    src: url(../fonts/Walkway_Bold.ttf) format("truetype");
+}
+
+.logo {
+    font-family: "GeosansLight";
+    color: #ffffff;
+    margin-left: 3%;
+}
+
+.logo h3{
+    margin-top: -0.5%;
+}
+
 .glass {
     display: block;
     width: 30%;
     height: 40%;
     background-size: cover;
     content: ' ';
-    margin-top: 11%;
+    margin-top: 6%;
     margin-left: auto ;
     margin-right: auto ;
     padding: 4%;
@@ -276,6 +291,7 @@
 
 .tabel-radio {
     margin-bottom: 3%;
+    width: 100% !important;
 }
 
 .tabel-radio th{
