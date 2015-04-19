@@ -117,9 +117,9 @@ else if($_COOKIE['role'] != 1)
                                 $tanggal = $row['_tanggal'];
                                 $id = $row['id'];
                                 echo "<tr id=".$id.">";
-                                echo "<td contenteditable=\"true\">" .$tanggal. "</td>";
-                                echo "<td contenteditable=\"true\">" .$keterangan. "</td>";
-                                echo "<td contenteditable=\"true\">" .$nominal. "</td>";
+                                echo "<td contenteditable=\"true\" class='tanggal'>" .$tanggal. "</td>";
+                                echo "<td contenteditable=\"true\" class='keterangan'>" .$keterangan. "</td>";
+                                echo "<td contenteditable=\"true\" class='nominal'>" .$nominal. "</td>";
                                 echo "<td>";
                                 echo "<span class=\"table-remove-pemasukan glyphicon glyphicon-remove\"></span>";
                                 echo "</td>";
@@ -130,15 +130,10 @@ else if($_COOKIE['role'] != 1)
                             }
                             mysql_close();
                         ?>
-                        <tr class="hide" id="">
-                            <td contenteditable="true">
-                                    <?php
-                                        date_default_timezone_set('UTC');
-                                        echo date('d-m-Y');
-                                    ?>
-                            </td>
-                            <td contenteditable="true">Ketik di sini</td>
-                            <td contenteditable="true">Ketik di sini</td>
+                        <tr id="0" class="hide" >
+                            <td contenteditable="true" class="tanggal"><?php date_default_timezone_set('UTC');echo date('d-m-Y'); ?></td>
+                            <td contenteditable="true" class="keterangan">Ketik di sini</td>
+                            <td contenteditable="true" class="nominal">Ketik di sini</td>
                             <td><span class="table-remove-pemasukan glyphicon glyphicon-remove"></span></td>
                             <td><span class="table-ok-pemasukan glyphicon glyphicon-ok"></span></td>
                         </tr>
@@ -196,13 +191,9 @@ else if($_COOKIE['role'] != 1)
                             }
                             mysql_close();
                         ?>
-                        <tr class="hide" id="">
-                            <td contenteditable="true" class="tanggal">
-                                <?php
-                                    date_default_timezone_set('UTC');
-                                    echo date('d-m-Y');
-                                ?>
-                            </td>
+                        
+                        <tr id="0" class="hide" >
+                            <td contenteditable="true" class="tanggal"><?php date_default_timezone_set('UTC');echo date('d-m-Y'); ?></td>
                             <td contenteditable="true" class="keterangan">Ketik di sini</td>
                             <td contenteditable="true" class="nominal">Ketik di sini</td>
                             <td><span class="table-remove-pengeluaran glyphicon glyphicon-remove"></span></td>
@@ -212,7 +203,6 @@ else if($_COOKIE['role'] != 1)
                 </div>
             </div>
             <!-- END OF TABEL PENGELUARAN -->
-        </div>
         </div>
     </body>
     <script src="assets/js/jquery.min.js"></script>

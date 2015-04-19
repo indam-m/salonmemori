@@ -24,7 +24,7 @@ $(document).ready(function(){
 				type : 'POST',
 				url : 'delete_pembukuan.php',
 				data : 'id=' + id + '&tipe=' + tipe
-			})
+			});
 			$(this).parents('tr').detach();
 		}
 	});
@@ -37,9 +37,44 @@ $(document).ready(function(){
 				type : 'POST',
 				url : 'delete_pembukuan.php',
 				data : 'id=' + id + '&tipe=' + tipe
-			})
+			});
 			$(this).parents('tr').detach();
 		}
+	});
+
+	$('.table-ok-pemasukan').click(function () {
+		var id = $(this).parents('tr').attr('id');
+		var tanggal = $(this).parents('tr').find(".tanggal").text();
+		var keterangan = $(this).parents('tr').find(".keterangan").text();
+		var nominal = $(this).parents('tr').find(".nominal").text();
+		var tipe = 0;
+		$.ajax({
+			type : 'POST',
+			url : 'edit_pembukuan.php',
+			data : 'id=' + id + '&tipe=' + tipe + '&tanggal=' + tanggal + '&keterangan=' + keterangan + '&nominal=' + nominal
+		});
+		if(id == 0)
+			alert("Data berhasil disimpan.");
+		else
+			alert("Data berhasil diubah.");
+	});
+
+	$('.table-ok-pengeluaran').click(function () {
+		var id = $(this).parents('tr').attr('id');
+		var tanggal = $(this).parents('tr').find(".tanggal").text();
+		var keterangan = $(this).parents('tr').find(".keterangan").text();
+		var nominal = $(this).parents('tr').find(".nominal").text();
+		var tipe = 1;
+		alert("aa " + id);
+		$.ajax({
+			type : 'POST',
+			url : 'edit_pembukuan.php',
+			data : 'id=' + id + '&tipe=' + tipe + '&tanggal=' + tanggal + '&keterangan=' + keterangan + '&nominal=' + nominal
+		});
+		if(id == 0)
+			alert("Data berhasil disimpan.");
+		else
+			alert("Data berhasil diubah.");
 	});
 
 	$('.table-up').click(function () {

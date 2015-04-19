@@ -11,8 +11,6 @@ if($role == "Manajer")
 	$role2 = "manager";
 $gaji = $_POST['gaji'];
 
-echo '<script type="text/javascript"> alert("WAI"); </script>';
-
 $isexist = mysql_query("SELECT * FROM karyawan WHERE username='$user'") or die(mysql_error());
 
 if(mysql_num_rows($isexist) == 0){
