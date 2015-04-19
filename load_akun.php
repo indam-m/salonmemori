@@ -10,13 +10,15 @@ while($row = mysql_fetch_assoc($akuns)){
 	$user = $row['username'];
 	$password = $row['password'];
 	$role = "Manajer";
+	$gaji = $row['gaji'];
 
 	echo'
 		<tr>
 		    <td contenteditable="true" class="nama">'.$nama.'</td>
-		    <td contenteditable="true" class="username">'.$user.'</td>
+		    <td class="username">'.$user.'</td>
 		    <td contenteditable="true" class="password">'.$password.'</td>
 		    <td contenteditable="true" class="role">'.$role.'</td>
+		    <td contenteditable="true" class="gaji">'.$gaji.'</td>
 		    <td><span class="table-remove glyphicon glyphicon-remove"></span></td>
 		    <td><span class="table-ok glyphicon glyphicon-ok"></span></td>
 		</tr>
@@ -31,13 +33,15 @@ while($row = mysql_fetch_assoc($akuns2)){
 	$user = $row['username'];
 	$password = $row['password'];
 	$role = "Kasir";
+	$gaji = $row['gaji'];
 
 	echo'
 		<tr>
 		    <td contenteditable="true" class="nama">'.$nama.'</td>
-		    <td contenteditable="true" class="username">'.$user.'</td>
+		    <td class="username">'.$user.'</td>
 		    <td contenteditable="true" class="password">'.$password.'</td>
 		    <td contenteditable="true" class="role">'.$role.'</td>
+		    <td contenteditable="true" class="gaji">'.$gaji.'</td>
 		    <td><span class="table-remove glyphicon glyphicon-remove"></span></td>
 		    <td><span class="table-ok glyphicon glyphicon-ok"></span></td>
 		</tr>

@@ -11,8 +11,8 @@ else if($_COOKIE['role'] != 1)
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <title>Pembukuan</title>
-        <link href="assets/css/my-css.css" rel="stylesheet" />
-        <link href="assets/css/bootstrap.css" rel="stylesheet" />
+        <link type="text/css" href="assets/css/my-css.css" rel="stylesheet" />
+        <link type="text/css" href="assets/css/bootstrap.css" rel="stylesheet" />
     </head>
 
     <body class="background">
@@ -115,21 +115,22 @@ else if($_COOKIE['role'] != 1)
                                 $keterangan = $row['keterangan'];
                                 $nominal = $row['nominal'];
                                 $tanggal = $row['_tanggal'];
-                                echo "<tr>";
+                                $id = $row['id'];
+                                echo "<tr id=".$id.">";
                                 echo "<td contenteditable=\"true\">" .$tanggal. "</td>";
                                 echo "<td contenteditable=\"true\">" .$keterangan. "</td>";
                                 echo "<td contenteditable=\"true\">" .$nominal. "</td>";
                                 echo "<td>";
-                                echo "<span class=\"table-remove glyphicon glyphicon-remove\"></span>";
+                                echo "<span class=\"table-remove-pemasukan glyphicon glyphicon-remove\"></span>";
                                 echo "</td>";
                                 echo "<td>";
-                                echo "<span class=\"table-ok glyphicon glyphicon-ok\"></span>";
+                                echo "<span class=\"table-ok-pemasukan glyphicon glyphicon-ok\"></span>";
                                 echo "</td>";
                                 echo "</tr>";
                             }
                             mysql_close();
                         ?>
-                        <tr class="hide">
+                        <tr class="hide" id="">
                             <td contenteditable="true">
                                     <?php
                                         date_default_timezone_set('UTC');
@@ -138,8 +139,8 @@ else if($_COOKIE['role'] != 1)
                             </td>
                             <td contenteditable="true">Ketik di sini</td>
                             <td contenteditable="true">Ketik di sini</td>
-                            <td><span class="table-remove glyphicon glyphicon-remove"></span></td>
-                            <td><span class="table-ok glyphicon glyphicon-ok"></span></td>
+                            <td><span class="table-remove-pemasukan glyphicon glyphicon-remove"></span></td>
+                            <td><span class="table-ok-pemasukan glyphicon glyphicon-ok"></span></td>
                         </tr>
                     </table>
                 </div>
@@ -180,31 +181,32 @@ else if($_COOKIE['role'] != 1)
                                 $keterangan = $row['keterangan'];
                                 $nominal = $row['nominal'];
                                 $tanggal = $row['_tanggal'];
-                                echo "<tr>";
-                                echo "<td contenteditable=\"true\">" .$tanggal. "</td>";
-                                echo "<td contenteditable=\"true\">" .$keterangan. "</td>";
-                                echo "<td contenteditable=\"true\">" .$nominal. "</td>";
+                                $id = $row['id'];
+                                echo "<tr id=".$id.">";
+                                echo "<td contenteditable=\"true\" class=\"tanggal\">" .$tanggal. "</td>";
+                                echo "<td contenteditable=\"true\" class=\"keterangan\">" .$keterangan. "</td>";
+                                echo "<td contenteditable=\"true\" class=\"nominal\">" .$nominal. "</td>";
                                 echo "<td>";
-                                echo "<span class=\"table-remove glyphicon glyphicon-remove\"></span>";
+                                echo "<span class=\"table-remove-pengeluaran glyphicon glyphicon-remove\"></span>";
                                 echo "</td>";
                                 echo "<td>";
-                                echo "<span class=\"table-ok glyphicon glyphicon-ok\"></span>";
+                                echo "<span class=\"table-ok-pengeluaran glyphicon glyphicon-ok\"></span>";
                                 echo "</td>";
                                 echo "</tr>";
                             }
                             mysql_close();
                         ?>
-                        <tr class="hide">
-                            <td contenteditable="true">
+                        <tr class="hide" id="">
+                            <td contenteditable="true" class="tanggal">
                                 <?php
                                     date_default_timezone_set('UTC');
                                     echo date('d-m-Y');
                                 ?>
                             </td>
-                            <td contenteditable="true">Ketik di sini</td>
-                            <td contenteditable="true">Ketik di sini</td>
-                            <td><span class="table-remove glyphicon glyphicon-remove"></span></td>
-                            <td><span class="table-ok glyphicon glyphicon-ok"></span></td>
+                            <td contenteditable="true" class="keterangan">Ketik di sini</td>
+                            <td contenteditable="true" class="nominal">Ketik di sini</td>
+                            <td><span class="table-remove-pengeluaran glyphicon glyphicon-remove"></span></td>
+                            <td><span class="table-ok-pengeluaran glyphicon glyphicon-ok"></span></td>
                         </tr>
                     </table>
                 </div>

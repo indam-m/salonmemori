@@ -16,8 +16,30 @@ $(document).ready(function(){
       $('#table-pengeluaran').append($clone);
 	});
 
-	$('.table-remove').click(function () {
-	  $(this).parents('tr').detach();
+	$('.table-remove-pemasukan').click(function () {
+		if(confirm("Anda yakin ingin menghapusnya?")){
+			var id = $(this).parents('tr').attr('id');
+			var tipe = 0;
+			$.ajax({
+				type : 'POST',
+				url : 'delete_pembukuan.php',
+				data : 'id=' + id + '&tipe=' + tipe
+			})
+			$(this).parents('tr').detach();
+		}
+	});
+
+	$('.table-remove-pengeluaran').click(function () {
+		if(confirm("Anda yakin ingin menghapusnya?")){
+			var id = $(this).parents('tr').attr('id');
+			var tipe = 1;
+			$.ajax({
+				type : 'POST',
+				url : 'delete_pembukuan.php',
+				data : 'id=' + id + '&tipe=' + tipe
+			})
+			$(this).parents('tr').detach();
+		}
 	});
 
 	$('.table-up').click(function () {

@@ -3,28 +3,13 @@
     src: url(../fonts/SourceSansPro-Regular.otf) format("truetype");
 }
 
-@font-face {
-    font-family: "GeosansLight";
-    src: url(../fonts/Walkway_Bold.ttf) format("truetype");
-}
-
-.logo {
-    font-family: "GeosansLight";
-    color: #ffffff;
-    margin-left: 3%;
-}
-
-.logo h3{
-    margin-top: -0.5%;
-}
-
 .glass {
     display: block;
     width: 30%;
     height: 40%;
     background-size: cover;
     content: ' ';
-    margin-top: 6%;
+    margin-top: 11%;
     margin-left: auto ;
     margin-right: auto ;
     padding: 4%;
@@ -170,12 +155,12 @@
   }
 }
 
-.table-remove {
+.table-remove-pemasukan, .table-remove-pengeluaran, .table-remove {
   color: #700;
   cursor: pointer;
 }
 
-.table-remove:hover {
+.table-remove-pemasukan:hover, .table-remove-pengeluaran:hover, .table-remove:hover {
 	color: #f00;
 }
 
@@ -188,7 +173,7 @@
 	color: #00f;
 }
 
-.table-add-pemasukan, .table-add-pengeluaran, .table-ok, .table-add {
+.table-add-pemasukan, .table-add-pengeluaran, .table-ok-pemasukan, .table-ok-pengeluaran, .table-ok, .table-add {
   color: #070;
   cursor: pointer;
   position: absolute;
@@ -196,7 +181,7 @@
   right: 0;
 }
 
-.table-add-pemasukan:hover, .table-add-pengeluaran:hover, .table-ok:hover, .table-add:hover {
+.table-add-pemasukan:hover, .table-add-pengeluaran:hover, .table-ok-pemasukan:hover, .table-add-pengeluaran:hover, .table-ok:hover, .table-add:hover {
 	color: #0b0;
 }
 
@@ -291,7 +276,6 @@
 
 .tabel-radio {
     margin-bottom: 3%;
-    width: 100% !important;
 }
 
 .tabel-radio th{

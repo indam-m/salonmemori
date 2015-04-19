@@ -10,7 +10,7 @@ else if($_COOKIE['role'] != 1)
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <title>Pembukuan</title>
+        <title>Manajemen Akun</title>
         <link href="assets/css/my-css.css" rel="stylesheet" />
         <link href="assets/css/bootstrap.css" rel="stylesheet" />
     </head>
@@ -53,6 +53,7 @@ else if($_COOKIE['role'] != 1)
                         <th>Username</th>
                         <th>Password</th>
                         <th>Role</th>
+                        <th>Gaji</th>
                         <th></th>
                         <th><span class="table-add glyphicon glyphicon-plus"></span></th>
                     </tr>
@@ -65,6 +66,7 @@ else if($_COOKIE['role'] != 1)
                         <td contenteditable="true" class="username">Ketik di sini</td>
                         <td contenteditable="true" class="password">Ketik di sini</td>
                         <td contenteditable="true" class="role">Ketik di sini</td>
+                        <td contenteditable="true" class="gaji">Ketik di sini</td>
                         <td><span class="table-remove glyphicon glyphicon-remove"></span></td>
                         <td><span class="table-ok glyphicon glyphicon-ok"></span></td>
                     </tr>
@@ -75,5 +77,5 @@ else if($_COOKIE['role'] != 1)
     </body>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
-    <script src="assets/js/akun.js"></script>
+    <script src="assets/js/akun2.js"></script>
 </html>
