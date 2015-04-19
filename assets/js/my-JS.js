@@ -22,3 +22,57 @@ function div_hide(){
 $(document).ready(function(){
     div_hide(); 
 });
+
+function loadRegistrasi(){
+    // Create an XMLHttpRequest Object  
+    var xmlHttpObj; 
+    if (window.XMLHttpRequest) {                
+        xmlHttpObj = new XMLHttpRequest( );
+    } else {            
+        try {
+            xmlHttpObj = new ActiveXObject("Msxml2.XMLHTTP");
+        } catch (e) {
+            try {
+                xmlHttpObj = new ActiveXObject("Microsoft.XMLHTTP");
+            } catch (e) {
+                xmlHttpObj = false;
+            }
+        }
+    }       
+    // Create a function that will receive data sent from the server
+    xmlHttpObj.open("GET", "loadregistrasi.php", true);
+    xmlHttpObj.send();
+    xmlHttpObj.onreadystatechange = function() {
+        if (xmlHttpObj.readyState == 4 && xmlHttpObj.status == 200) {
+            document.getElementById("page-inner").innerHTML=xmlHttpObj.responseText;
+        }
+    }
+}
+
+function selesaiLayanan(nama, biaya){
+    if(confirm("Sudah selesai pelayanannya?")){
+        // Create an XMLHttpRequest Object  
+        var xmlHttpObj; 
+        if (window.XMLHttpRequest) {                
+            xmlHttpObj = new XMLHttpRequest( );
+        } else {            
+            try {
+                xmlHttpObj = new ActiveXObject("Msxml2.XMLHTTP");
+            } catch (e) {
+                try {
+                    xmlHttpObj = new ActiveXObject("Microsoft.XMLHTTP");
+                } catch (e) {
+                    xmlHttpObj = false;
+                }
+            }
+        }       
+        // Create a function that will receive data sent from the server
+        xmlHttpObj.open("GET", "layanan_selesai.php?nama=" + nama + "&biaya=" + biaya, true);
+        xmlHttpObj.send();
+        xmlHttpObj.onreadystatechange = function() {
+            if (xmlHttpObj.readyState == 4 && xmlHttpObj.status == 200) {
+                document.getElementById("page-inner").innerHTML=xmlHttpObj.responseText;
+            }
+        }
+    }
+}

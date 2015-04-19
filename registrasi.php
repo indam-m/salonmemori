@@ -17,7 +17,7 @@ else if($_COOKIE['role'] != 2)
 		<link rel="stylesheet" type="text/css" href="assets/css/component.css" />
     </head>
 
-    <body class="background" style="overflow:hidden;">
+    <body class="background" style="overflow:hidden;" onload="loadRegistrasi();">
         <!-- NAV BAR -->
         <nav role="navigation" class="navbar navbar-inverse">
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -54,44 +54,7 @@ else if($_COOKIE['role'] != 2)
         </div>
         
         <!-- TABEL DAFTAR REGISTRASI -->
-        <div class="box-registrasi">
-            <table class="table tabel-registrasi">
-                <thead>
-                    <tr>
-                        <th>Tanggal</th>
-                        <th>Nama Pelanggan</th>
-                        <th>Jenis Layanan</th>
-                        <th>Harga</th>
-                        <th>Status</th>
-                    </tr>
-                </thead>
-                <tbody>
-                <?php
-                    include('connectdb.php');
-                    $pesanan= mysql_query("SELECT *, SUM(biaya) as jumlah FROM pesanan NATURAL JOIN pesanan_layanan NATURAL JOIN layanan WHERE id = id_layanan AND status = FALSE GROUP BY nama_pelanggan ORDER BY id_layanan DESC") or die(mysql_error());
-                    while($row = mysql_fetch_assoc($pesanan)){
-                        $nama = $row['nama_pelanggan'];
-                        $biaya = $row['jumlah'];
-                        $pelayanan = mysql_query("SELECT nama FROM pesanan_layanan NATURAL JOIN layanan WHERE nama_pelanggan='$nama' AND id = id_layanan") or die(mysql_error());
-
-                        echo '
-                        <tr>
-                            <td>'.date('d-m-Y').'</td>
-                            <td>'.$nama.'</td>
-                            <td>';
-                        while($rowpelayanan = mysql_fetch_assoc($pelayanan)){
-                            echo $rowpelayanan['nama'].'<br>';
-                        }
-                        echo '
-                            </td>
-                            <td>'.$biaya.'</td>
-                            <td><span class="glyphicon glyphicon-ok status-pelayanan" onclick = layanan_selesai.php></span></td>
-                        </tr>';
-                    }
-                    mysql_close();
-                ?>
-                </tbody>
-            </table>
+        <div id="page-inner">
         </div>
         <!-- END OF TABEL DAFTAR REGISTRASI -->
         
@@ -100,18 +63,28 @@ else if($_COOKIE['role'] != 2)
         <div class="md-modal md-effect-10" id="modal-10">
         <div class="md-content">
             <!-- Contact Us Form -->
-            <form action="#" id="form-registrasi" method="post" name="form">
+            <form action="add_layanan.php" id="form-registrasi" method="post" name="form">
                 <img id="close" src="assets/img/close-icon.png" class="md-close float-right close-button">
                 <h2>Tambah Registrasi</h2>
                 <hr>
                 <label for="inputPassword">Nama Pelanggan</label>
-                <input type="text" class="form-control transparent-input-field" id="name"/> <br>
+                <input type="text" class="form-control transparent-input-field" id="name" name="name" /> <br>
                 <label for="inputPassword">Jenis Layanan</label>
-                <div class="checkbox"><label><input type="checkbox">Cuci</label></div>
-                <div class="checkbox"><label><input type="checkbox">Creambath</label></div>
-                <div class="checkbox"><label><input type="checkbox">Potong</label></div>
-                <div class="checkbox"><label><input type="checkbox">Blow</label></div>
-                <div class="checkbox"><label><input type="checkbox">Lain-Lain</label></div>
+                <?php
+
+                include 'connectdb.php';
+
+                $listing = mysql_query("SELECT * FROM layanan") or die(mysql_error());
+
+                while($rowlayanan = mysql_fetch_assoc($listing)){
+                    $nama_l = $rowlayanan['nama'];
+                    $id_l = $rowlayanan['id'];
+                    echo '<div class="checkbox"><label><input name="'.$nama_l.'" value="'.$id_l.'" type="checkbox">'.$nama_l.'</label></div>';
+                }
+
+                mysql_close();
+
+                ?>
                 <a href="javascript:%20check_empty()" id="submit"><div class="float-right dark-button md-close"></div></a>
             </form>
         </div>
@@ -128,34 +101,3 @@ else if($_COOKIE['role'] != 2)
     <script src="assets/js/cssParser.js"></script>
     <script src="assets/js/css-filters-polyfill.js"></script>
 </html>
-
-<script>
-function done(nama, biaya, kasir) {
-    alert("Username atau password salah");
-    var xmlHttpObj;
-    if (window.XMLHttpRequest) {
-        xmlHttpObj = new XMLHttpRequest( );
-    } 
-    else {
-        try {
-            xmlHttpObj = new ActiveXObject("Msxml2.XMLHTTP");
-        } 
-        catch (e) {
-            try {
-                xmlHttpObj = new ActiveXObject("Microsoft.XMLHTTP");
-            } 
-            catch (e) {
-                xmlHttpObj = false;
-            }
-        }
-    }
-    xmlHttpObj.open("GET","layanan_selesai.php?nama="+nama+"&biaya="+biaya+"&kasir="+kasir,true);
-    //LoadCommentAjax(id_post);
-    xmlHttpObj.send();
-    
-    xmlHttpObj.onreadystatechange= function(){
-        if(xmlHttpObj.readyState==4 && xmlHttpObj.status==200){
-        }
-    }
-}
-</script>
