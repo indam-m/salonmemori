@@ -15,7 +15,7 @@ else if($_COOKIE['role'] != 1)
         <link type="text/css" href="assets/css/bootstrap.css" rel="stylesheet" />
     </head>
 
-    <body class="background">
+    <body class="background" onload="loadPembukuan();">
         <!-- NAV BAR -->
         <nav role="navigation" class="navbar navbar-inverse">
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -55,7 +55,7 @@ else if($_COOKIE['role'] != 1)
                 <table class="tabel-radio">
                 <th>
                 <label class="btn btn-success active">
-                    <input type="radio" name="options" id="option2" autocomplete="off" checked>
+                    <input type="radio" name="options" id="option2" autocomplete="off" value="semua" checked onclick="loadPembukuan()">
                     &nbsp;Tampilkan Semua Tanggal
                     <!-- <span class="glyphicon glyphicon-ok"></span> -->
                 </label>
@@ -63,15 +63,15 @@ else if($_COOKIE['role'] != 1)
                 <th class="narrow-width">&nbsp;</th>
                 <th>
                 <label class="btn btn-info">
-                    <input type="radio" name="options" id="option2" autocomplete="off">
+                    <input type="radio" name="options" id="option2" value="tidak" autocomplete="off" onclick="pembukuanTanggal()">
                     <!-- <span class="glyphicon glyphicon-ok"></span> -->
                     &nbsp;Ambil Tanggal Tertentu
                 </label>
                 </th>
                 
-                <th><input type="text" id="datepicker" class="form-control transparent-input-field" placeholder="Tanggal Awal"></th>
+                <th><input type="text" id="datepicker" name="tgl1" class="form-control transparent-input-field" placeholder="Tanggal Awal"></th>
                 <th class="narrow-width"><center><font color="white">s.d.</font></center></th>
-                <th><input type="text" id="datepicker2" class="form-control transparent-input-field" placeholder="Tanggal Akhir"></th>
+                <th><input type="text" id="datepicker2" name="tgl2" class="form-control transparent-input-field" placeholder="Tanggal Akhir"></th>
                 <th>&nbsp;&nbsp;&nbsp;&nbsp;<label class="btn btn-warning float-right">Buat Laporan Pembukuan</th>
                 </table>
                 </div>
@@ -79,135 +79,13 @@ else if($_COOKIE['role'] != 1)
             </form>
             </div>
             <!-- END OF RADIO BUTTON -->
-
-        <div class="row">
-            <!-- TABEL PEMASUKAN -->
-            <div class="col-md-6">
-                <table class="table tabel-registrasi">
-                    <thead>
-                        <th><h3>Total Pemasukan</h3></th>
-                        <?php
-                            include('connectdb.php');
-                            $pemasukan= mysql_query("SELECT SUM(nominal) as total FROM pemasukan") or die(mysql_error());
-                            while($row = mysql_fetch_assoc($pemasukan)){
-                                $total = $row['total'];
-                            }
-                            mysql_close();
-                            echo "<th><h3>" .$total. "</h3></th>"
-                        ?>
-                    </thead>
-                </table>
-                
-                <div id="table" class="table-editable">
-                    <table class="table tabel-registrasi" id="table-pemasukan">
-                        <tr>
-                            <th>Tanggal</th>
-                            <th>Keterangan</th>
-                            <th>Pemasukan</th>
-                            <th></th>
-                            <th><span class="table-add-pemasukan glyphicon glyphicon-plus"></span></th>
-                        </tr>
-                        <!-- This is our clonable table line -->
-                        <?php
-                            include('connectdb.php');
-                            $pemasukan= mysql_query("SELECT *, DATE_FORMAT(tanggal, '%d-%m-%Y') as _tanggal FROM pemasukan ORDER BY tanggal DESC") or die(mysql_error());
-                            while($row = mysql_fetch_assoc($pemasukan)){
-                                $keterangan = $row['keterangan'];
-                                $nominal = $row['nominal'];
-                                $tanggal = $row['_tanggal'];
-                                $id = $row['id'];
-                                echo "<tr id=".$id.">";
-                                echo "<td contenteditable=\"true\" class='tanggal'>" .$tanggal. "</td>";
-                                echo "<td contenteditable=\"true\" class='keterangan'>" .$keterangan. "</td>";
-                                echo "<td contenteditable=\"true\" class='nominal'>" .$nominal. "</td>";
-                                echo "<td>";
-                                echo "<span class=\"table-remove-pemasukan glyphicon glyphicon-remove\"></span>";
-                                echo "</td>";
-                                echo "<td>";
-                                echo "<span class=\"table-ok-pemasukan glyphicon glyphicon-ok\"></span>";
-                                echo "</td>";
-                                echo "</tr>";
-                            }
-                            mysql_close();
-                        ?>
-                        <tr id="0" class="hide" >
-                            <td contenteditable="true" class="tanggal"><?php date_default_timezone_set('UTC');echo date('d-m-Y'); ?></td>
-                            <td contenteditable="true" class="keterangan">Ketik di sini</td>
-                            <td contenteditable="true" class="nominal">Ketik di sini</td>
-                            <td><span class="table-remove-pemasukan glyphicon glyphicon-remove"></span></td>
-                            <td><span class="table-ok-pemasukan glyphicon glyphicon-ok"></span></td>
-                        </tr>
-                    </table>
-                </div>
+            <div id="page-inner">
             </div>
-            <!-- END OF  TABEL PEMASUKAN -->
-
-            <!-- TABEL PENGELUARAN -->
-            <div class="col-md-6">
-                <table class="table tabel-registrasi">
-                    <thead>
-                        <th><h3>Total Pengeluaran</h3></th>
-                        <?php
-                            include('connectdb.php');
-                            $pengeluaran= mysql_query("SELECT SUM(nominal) as total FROM pengeluaran") or die(mysql_error());
-                            while($row = mysql_fetch_assoc($pengeluaran)){
-                                $total = $row['total'];
-                            }
-                            mysql_close();
-                            echo "<th><h3>" .$total. "</h3></th>"
-                        ?>
-                    </thead>
-                </table>
-                
-                <div id="table" class="table-editable">
-                    <table class="table tabel-registrasi" id="table-pengeluaran">
-                        <tr>
-                            <th>Tanggal</th>
-                            <th>Keterangan</th>
-                            <th>Pengeluaran</th>
-                            <th></th>
-                            <th><span class="table-add-pengeluaran glyphicon glyphicon-plus"></span></th>
-                        </tr>
-                        <!-- This is our clonable table line -->
-                        <?php
-                            include('connectdb.php');
-                            $pengeluaran= mysql_query("SELECT *, DATE_FORMAT(tanggal, '%d-%m-%Y') as _tanggal FROM pengeluaran ORDER BY tanggal DESC") or die(mysql_error());
-                            while($row = mysql_fetch_assoc($pengeluaran)){
-                                $keterangan = $row['keterangan'];
-                                $nominal = $row['nominal'];
-                                $tanggal = $row['_tanggal'];
-                                $id = $row['id'];
-                                echo "<tr id=".$id.">";
-                                echo "<td contenteditable=\"true\" class=\"tanggal\">" .$tanggal. "</td>";
-                                echo "<td contenteditable=\"true\" class=\"keterangan\">" .$keterangan. "</td>";
-                                echo "<td contenteditable=\"true\" class=\"nominal\">" .$nominal. "</td>";
-                                echo "<td>";
-                                echo "<span class=\"table-remove-pengeluaran glyphicon glyphicon-remove\"></span>";
-                                echo "</td>";
-                                echo "<td>";
-                                echo "<span class=\"table-ok-pengeluaran glyphicon glyphicon-ok\"></span>";
-                                echo "</td>";
-                                echo "</tr>";
-                            }
-                            mysql_close();
-                        ?>
-                        
-                        <tr id="0" class="hide" >
-                            <td contenteditable="true" class="tanggal"><?php date_default_timezone_set('UTC');echo date('d-m-Y'); ?></td>
-                            <td contenteditable="true" class="keterangan">Ketik di sini</td>
-                            <td contenteditable="true" class="nominal">Ketik di sini</td>
-                            <td><span class="table-remove-pengeluaran glyphicon glyphicon-remove"></span></td>
-                            <td><span class="table-ok-pengeluaran glyphicon glyphicon-ok"></span></td>
-                        </tr>
-                    </table>
-                </div>
-            </div>
-            <!-- END OF TABEL PENGELUARAN -->
-        </div>
+            
     </body>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
     <script src="assets/js/script-pembukuan.js"></script>
-    <script src="assets/js/datepicker.js"></script>  
+    <script src="assets/js/datepicker.js"></script>   
     <link rel="stylesheet" href="assets/css/datepicker.css">
 </html>

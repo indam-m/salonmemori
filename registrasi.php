@@ -39,7 +39,7 @@ else if($_COOKIE['role'] != 2)
                 <form role="search" class="navbar-form navbar-left">
                     <span class="right-inner-addon">
                         <i class="form-control-feedback glyphicon glyphicon-search"></i>
-                        <input type="text" placeholder="Search" class="form-control search-input">
+                        <input type="text" placeholder="Search" class="form-control search-input" name="search" onkeypress="return searchRegistrasi(event, this.value);" required>
                     </span>
                 </form>
                 <ul class="nav navbar-nav navbar-right">

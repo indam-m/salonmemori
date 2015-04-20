@@ -76,3 +76,35 @@ function selesaiLayanan(nama, biaya){
         }
     }
 }
+
+function searchRegistrasi(e, search){
+    // Create an XMLHttpRequest Object 
+    if(e.keyCode != 13){
+        return true;
+    }
+    else {
+        var xmlHttpObj; 
+        if (window.XMLHttpRequest) {                
+            xmlHttpObj = new XMLHttpRequest( );
+        } else {            
+            try {
+                xmlHttpObj = new ActiveXObject("Msxml2.XMLHTTP");
+            } catch (e) {
+                try {
+                    xmlHttpObj = new ActiveXObject("Microsoft.XMLHTTP");
+                } catch (e) {
+                    xmlHttpObj = false;
+                }
+            }
+        }       
+        // Create a function that will receive data sent from the server
+        xmlHttpObj.open("GET", "search_registrasi.php?search=" + search, true);
+        xmlHttpObj.send();
+        xmlHttpObj.onreadystatechange = function() {
+            if (xmlHttpObj.readyState == 4 && xmlHttpObj.status == 200) {
+                document.getElementById("page-inner").innerHTML=xmlHttpObj.responseText;
+            }
+        }
+        return false;
+    }
+}
