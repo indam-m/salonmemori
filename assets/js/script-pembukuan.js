@@ -82,8 +82,9 @@ function documentReady(){
 		});
 	    
 	    $('.table-add-pengeluaran').click(function () {
-		  var $clone = $TABLE.find('tr.hide').clone(true).removeClass('hide table-line');
+		  //var $clone = $TABLE.find('tr.hide').clone(true).removeClass('hide table-line');
 		  //$TABLE.find('table').append($clone);
+          var $clone = $('#table-pengeluaran').find('.hide').clone(true).removeClass('hide table-line');
 	      $('#table-pengeluaran').append($clone);
 		});
 
