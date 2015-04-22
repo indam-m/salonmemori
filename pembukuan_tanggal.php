@@ -13,12 +13,15 @@ $tgl2 = $_GET['tgl2'];
                 <th><h3>Total Pemasukan</h3></th>
                 <?php
                     include('connectdb.php');
-                    $pemasukan= mysql_query("SELECT SUM(nominal) as total FROM pemasukan") or die(mysql_error());
+                    $pemasukan= mysql_query("SELECT SUM(nominal) as total FROM pemasukan WHERE tanggal >= '$tgl1' AND tanggal <= '$tgl2'") or die(mysql_error());
                     while($row = mysql_fetch_assoc($pemasukan)){
                         $total = $row['total'];
+                        if($total != null)
+                            echo "<th><h3>" .$total. "</h3></th>";
+                        else
+                            echo "<th><h3>0</h3></th>";
                     }
                     mysql_close();
-                    echo "<th><h3>" .$total. "</h3></th>"
                 ?>
             </thead>
         </table>
@@ -74,12 +77,15 @@ $tgl2 = $_GET['tgl2'];
                 <th><h3>Total Pengeluaran</h3></th>
                 <?php
                     include('connectdb.php');
-                    $pengeluaran= mysql_query("SELECT SUM(nominal) as total FROM pengeluaran") or die(mysql_error());
+                    $pengeluaran= mysql_query("SELECT SUM(nominal) as total FROM pengeluaran WHERE tanggal >= '$tgl1' AND tanggal <= '$tgl2'") or die(mysql_error());
                     while($row = mysql_fetch_assoc($pengeluaran)){
                         $total = $row['total'];
+                        if($total != null)
+                            echo "<th><h3>" .$total. "</h3></th>";
+                        else
+                            echo "<th><h3>0</h3></th>";
                     }
                     mysql_close();
-                    echo "<th><h3>" .$total. "</h3></th>"
                 ?>
             </thead>
         </table>
