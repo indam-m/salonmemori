@@ -3,13 +3,37 @@
     src: url(../fonts/SourceSansPro-Regular.otf) format("truetype");
 }
 
+@font-face {
+    font-family: "Walkway";
+    src: url(../fonts/Walkway_Bold.ttf) format("truetype");
+}
+
+@font-face {
+    font-family: "Walkway-SemiBold";
+    src: url(../fonts/Walkway_SemiBold.ttf) format("truetype");
+}
+
+
+.logo {
+	color: #ffffff;
+	padding-top: 0.3%;
+	padding-left: 2%;
+	font-family: "Walkway-SemiBold";
+}
+
+.logo p {
+	font-size: 22px;
+	margin-top: -0.5%;
+}
+
 .glass {
+	font-family: "Walkway";
     display: block;
     width: 30%;
     height: 40%;
     background-size: cover;
     content: ' ';
-    margin-top: 11%;
+    margin-top: 5.5%;
     margin-left: auto ;
     margin-right: auto ;
     padding: 4%;
@@ -21,6 +45,10 @@
     -webkit-filter: blur(-2px);
 }
 
+.glass p{
+	font-size: 18px;
+}
+
 .background {
     background-image:url(../img/background.jpg);
     background-attachment:fixed;
@@ -28,6 +56,7 @@
 }
 
 .transparent-input-field{
+    font-family: "Walkway";
     background-color:rgba(0,0,0,0.3) !important;
     border:none !important;
     height: 40px !important;
@@ -87,6 +116,7 @@
 }
 
 .search-input {
+    font-family: "Walkway";
     width: 180% !important;
 }
 
@@ -119,6 +149,7 @@
 }
 
 #popupForm {
+    font-family: "Walkway";
     position: fixed;
     top: -10% !important;
     left: 35%;
@@ -126,6 +157,7 @@
 }
 
 .box-bg {
+    font-family: "Walkway";
     width:100%;
     height:100%;
     opacity:0.95;
@@ -291,5 +323,22 @@
 }
 
 .header {
+    font-family: "Walkway";
     padding-left: 5%;
+    padding-right: 5%;
+}
+
+.search-result-not-found {
+    background-color: rgba(191, 0, 0, 0.7);
+}
+
+.search-result-found {
+    background-color: rgba(90, 201, 31, 0.7);
+}
+
+.search-result-found, .search-result-not-found {
+    padding-right: 5%;
+    padding-bottom: 1.2%;
+    padding-top: 1.2%;
+    padding-left: 2%;
 }

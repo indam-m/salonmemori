@@ -12,9 +12,9 @@ $pesanan= mysql_query("SELECT *, SUM(biaya) as jumlah FROM pesanan NATURAL JOIN 
 
 echo '<div class="header"><font color="white"><h2>';
 if(mysql_num_rows($pesanan) > 0)
-	echo 'Hasil pencarian \''.$search.'\'';
+	echo '<div class="search-result-found">Hasil pencarian \''.$search.'\' </div>';
 else
-	echo 'Tidak ada hasil pencarian \''.$search.'\'';
+	echo '<div class="search-result-not-found">Tidak ada hasil pencarian \''.$search.'\' </div>';
 
 echo'
 </h2></font></div>

@@ -7,6 +7,10 @@
     </head>
 
     <body class="background">
+		<div class="logo">
+			<h1>Memory Salon</h1>
+			<p>Expensive Quality with Cheap Price</p>
+		</div>
         <article class="glass">
             <font color="white">
                 <h1>Log In Here</font-color></h1>
