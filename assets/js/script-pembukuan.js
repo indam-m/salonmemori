@@ -137,7 +137,6 @@ function documentReady(){
 			var keterangan = $(this).parents('tr').find(".keterangan").text();
 			var nominal = $(this).parents('tr').find(".nominal").text();
 			var tipe = 1;
-			alert("aa " + id);
 			$.ajax({
 				type : 'POST',
 				url : 'edit_pembukuan.php',

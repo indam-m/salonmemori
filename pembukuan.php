@@ -72,7 +72,7 @@ else if($_COOKIE['role'] != 1)
                 <th><input type="text" id="datepicker" name="tgl1" class="form-control transparent-input-field" placeholder="Tanggal Awal"></th>
                 <th class="narrow-width"><center><font color="white">s.d.</font></center></th>
                 <th><input type="text" id="datepicker2" name="tgl2" class="form-control transparent-input-field" placeholder="Tanggal Akhir"></th>
-                <th>&nbsp;&nbsp;&nbsp;&nbsp;<label class="btn btn-warning float-right">Buat Laporan Pembukuan</th>
+                <th>&nbsp;&nbsp;&nbsp;&nbsp;<label class="btn btn-warning float-right"><a href="https://dl.dropboxusercontent.com/s/9ydbtp5fjb5hce4/Pembukuan_Memori.pdf?dl=0">Buat Laporan Pembukuan</a></label></th>
                 </table>
                 </div>
             </div>
